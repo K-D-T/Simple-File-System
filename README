@@ -1,0 +1,19 @@
+designed by Kenyon Thomas, started my implementation of a RSFS, everything should be to spec...
+I did leave out concurrent functionality, couldn't get it to work properly
+
+
+Most of what was implemented was located in a single file api.c, I did add some variables for concurrent functionality,
+but gave up...
+
+I also added to def.h with some additional functions including find(int cur_inode, int dbloc ) checks to
+see if there is a matching block
+there were also some functions for initialization of bytes_track, and the removal of the "data"
+
+
+Some things I did add that weren't in spec an additional file, bytes_track.c, this just "tracks" how much
+was written into a specific datablock, not meant to be larger than 32 bytes
+
+bytes_track[32] is a parallel array for void* data_blocks[32], whatever is written is added into bytes_track.
+
+I implemented, the open, read, write, delete, fseek and close function based on the api, other than the addition of a 
+parallel array to track the number of bytes written by the buffer, nothing is out of the ordinary
